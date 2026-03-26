@@ -1,0 +1,47 @@
+{
+  "name": "s2-hanzi-ambient-renderer",
+  "version": "1.0.0",
+  "description": "Native renderer for S2 Hanzi Ambient UI. Translates spatial logic and emotions into dynamic Chinese ideographic morphing.",
+  "main": "handler.py",
+  "scripts": {
+    "start": "python3 handler.py",
+    "install": "pip install -r requirements.txt"
+  },
+  "openclaw": {
+    "extensions": [
+      "openclaw.plugin.json"
+    ],
+    "compat": {
+      "pluginApi": ">=3.22.0"
+    },
+    "capabilities": ["ambient_rendering", "spatial_logic", "lan_control"],
+    "configSchema": {
+      "type": "object",
+      "required": ["DISPLAY_PANEL_IP"],
+      "properties": {
+        "DISPLAY_PANEL_IP": {
+          "type": "string",
+          "description": "Local IP Address of your Hanzi Ambient Smart Panel or Hologram (e.g., 192.168.1.150)."
+        },
+        "RENDER_THEME": {
+          "type": "string",
+          "description": "Set the default rendering style: 'ink_wash' (水墨), 'cyberpunk' (赛博霓虹), or 'minimalist' (极简流体).",
+          "default": "ink_wash"
+        },
+        "S2_PRIVACY_CONSENT": {
+          "type": "string",
+          "description": "Set to '1' to allow local emotional telemetry processing for Hanzi morphing.",
+          "default": "0"
+        }
+      }
+    }
+  },
+  "keywords": [
+    "openclaw",
+    "hanzi",
+    "ambient-ui",
+    "spatial-rendering"
+  ],
+  "author": "Space2.world",
+  "license": "MIT"
+}
