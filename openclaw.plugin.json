@@ -1,12 +1,14 @@
 {
   "id": "s2-hanzi-ambient-renderer",
   "pluginId": "s2-hanzi-ambient-renderer",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "type": "native-code",
   "entry": "handler.py",
   "runtime": "python3",
   "capabilities": {
     "dynamic_rendering": true,
+    "spatial_color_mapping": true,
+    "local_matrix_offline_mode": true,
     "local_network_push": true
   },
   "permissions": {
@@ -15,11 +17,11 @@
       "192.168.*.*"  
     ],
     "tools": [
-      "push_hanzi_morph_state"
+      "process_spatial_telemetry"
     ]
   },
   "mcp_config": {
     "auto_discovery": true,
-    "protocol_version": "2026.3.22"
+    "protocol_version": "2026.4.1"
   }
 }

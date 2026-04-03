@@ -1,7 +1,7 @@
 {
   "name": "s2-hanzi-ambient-renderer",
-  "version": "1.0.0",
-  "description": "Native renderer for S2 Hanzi Ambient UI. Translates spatial logic and emotions into dynamic Chinese ideographic morphing.",
+  "version": "3.0.0",
+  "description": "S2 Spatial Palette Engine V3.0 (Local Matrix Edition). Merges 6-element telemetry into a 7-color spectrum, rendering dynamic Hanzi from a 200-character offline DB.",
   "main": "handler.py",
   "scripts": {
     "start": "python3 handler.py",
@@ -14,23 +14,31 @@
     "compat": {
       "pluginApi": ">=3.22.0"
     },
-    "capabilities": ["ambient_rendering", "spatial_logic", "lan_control"],
+    "build": {
+      "openclawVersion": "4.2.0"
+    },
+    "capabilities": [
+      "ambient_rendering", 
+      "spectrum_mapping", 
+      "hanzi_empathy", 
+      "offline_matrix"
+    ],
     "configSchema": {
       "type": "object",
-      "required": ["DISPLAY_PANEL_IP"],
+      "required": [],
       "properties": {
         "DISPLAY_PANEL_IP": {
           "type": "string",
-          "description": "Local IP Address of your Hanzi Ambient Smart Panel or Hologram (e.g., 192.168.1.150)."
+          "description": "Local IP Address of your Hanzi Smart Panel or Hologram (e.g., 192.168.1.150)."
         },
         "RENDER_THEME": {
           "type": "string",
-          "description": "Set the default rendering style: 'ink_wash' (水墨), 'cyberpunk' (赛博霓虹), or 'minimalist' (极简流体).",
+          "description": "Set the default rendering style: 'ink_wash' (水墨), 'particle_flow' (粒子流).",
           "default": "ink_wash"
         },
-        "S2_PRIVACY_CONSENT": {
+        "ENABLE_EXTERNAL_LLM": {
           "type": "string",
-          "description": "Set to '1' to allow local emotional telemetry processing for Hanzi morphing.",
+          "description": "Set to '1' to override the local 200-Hanzi matrix with cloud LLM generation (Not recommended for zero-trust setups).",
           "default": "0"
         }
       }
@@ -39,9 +47,10 @@
   "keywords": [
     "openclaw",
     "hanzi",
+    "spatial-palette",
     "ambient-ui",
-    "spatial-rendering"
+    "offline-first"
   ],
-  "author": "Space2.world",
+  "author": "Space2.world (Miles Xiang)",
   "license": "MIT"
 }
